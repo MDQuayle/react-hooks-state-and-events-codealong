@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState }from "react";
 
 function Toggle() {
-  return <button>OFF</button>;
+  const [toggler, setToggle] = useState(false)
+  function toggleHandler () {
+    setToggle(!toggler)
+  }
+  const color = toggler? "green" : "red";
+
+  return <button style = {{background: color}} onClick={toggleHandler}>{toggler ? "ON" : "OFF"}</button>;
 }
 
 export default Toggle;
